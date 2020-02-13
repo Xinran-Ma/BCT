@@ -4,20 +4,17 @@ import { connect, Provider } from "react-redux";
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import axios from 'axios';
 
-import './App.css';
+import styles from './App.module.scss';
 import ListPosts from './ListPosts/ListPosts';
 import AddNewPost from './AddNewPost.js/AddNewPost';
 import PostDetails from './PostDetails/PostDetails';
+import {INIT_POSTS, ADD_POST, UPDATE_POST_ID, ADD_COMMENT} from './ActionTypes';
 
 const initialState = {
 	posts: [],
 	comments: [],
 	current_post_id: ''
 }
-const INIT_POSTS = 'INIT_POSTS';
-const ADD_POST = 'ADD_POST';
-const UPDATE_POST_ID = 'UPDATE_POST_ID';
-const ADD_COMMENT = 'ADD_COMMENT';
 
 let store = createStore(counterReducer, initialState);
 store.subscribe(() => console.log(store.getState()));
@@ -78,10 +75,10 @@ function App() {
 	return (
 		<HashRouter>
 			<Provider store={store}>
-				<div className="App">
-					<header className="App-header">
-						<NavLink to="/">List Posts</NavLink>
-						<NavLink to="/new-post">New Post</NavLink>
+				<div className={styles.App}>
+					<header className={styles.App_header}>
+						<NavLink className={styles.nav_link} to="/">List Posts</NavLink>
+						<NavLink className={styles.nav_link} to="/new-post">New Post</NavLink>
 					</header>
 					<content>
 						<Route exact path="/" component={ConnectedListPosts} />

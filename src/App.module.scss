@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.App_header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  max-width: 70rem;
+  margin: auto;
+  background-color: #ffc195;
+}
+
+.nav_link {
+  margin: 10px 15px;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}

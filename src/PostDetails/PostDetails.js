@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from './PostDetails.module.css'
+import styles from './PostDetails.module.scss'
 
 const PostDetails = ({posts, comments, current_post_id, addComment, newComment}) => {
     const current_post = posts.find(post => post.id === current_post_id)
@@ -12,21 +12,22 @@ const PostDetails = ({posts, comments, current_post_id, addComment, newComment})
             <p>{current_post.title}</p>
             <div className={styles.make_a_comment}>
                 <form className={styles.form}>
-                    <input type="text" className={styles.comment_input_field} onChange={(event) => setComment({...savedComment, comment_details: event.target.value})} name="comment" placeholder="Make your new comment" />
+                    <textarea className={styles.comment_input_field} onChange={(event) => setComment({...savedComment, comment_details: event.target.value})} placeholder="Make your new comment" />
                 </form>
-                <button onClick={() => addComment(newComment = {...savedComment, post_id: current_post_id})}>Submit</button>
+                <button className={styles.button} onClick={() => addComment(newComment = {...savedComment, post_id: current_post_id})}>Submit</button>
             </div>
-            <div className={styles.comments}>
+            <h3 className={styles.comments_title} >Comments:</h3>
+            <ol className={styles.comments}>
                 {
                 total_comments.length === 0 ? <p>No Comments</p> : (
                     total_comments.map((curr, index) => {
                         return (
-                        <p key={index} className={styles.single_comment}>{curr.comment_details}</p>
+                        <li className={styles.single_comment} key={index} className={styles.single_comment}>{curr.comment_details}</li>
                         )
                     })
                 )
                 }
-            </div>
+            </ol>
         </div>
     )
 }

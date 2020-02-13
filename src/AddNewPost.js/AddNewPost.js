@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import styles from './AddNewPost.module.css'
+import styles from './AddNewPost.module.scss'
 
 const ListPosts = ({posts, newContent, addPost}) => {
     const [postContent, setContent] = useState({});

@@ -1,0 +1,28 @@
+.comment_input_field {
+    margin-bottom: 1rem;
+    width: 500px;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #3f51b5;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+
+    &:hover {
+        background-color: black;
+
+    }
+}
+
+.single_comment {
+    text-align: left;
+}
+
+.comments_title {
+    text-align: left;
+}
